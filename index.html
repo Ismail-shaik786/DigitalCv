@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismail Shaik - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Portfolio</div>
+            <nav class="nav-buttons">
+                <ul>
+                    <li><button onclick="showSection('home')">Home</button></li>
+                    <li><button onclick="showSection('about')">About</button></li>
+                    <li><button onclick="showSection('certificates')">Certifications</button></li>
+                    <li><button onclick="showSection('projects')">Projects</button></li>
+                    <li><button onclick="showSection('contact')">Contact</button></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-cv">Download CV</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <div class="container home-container">
+                <div class="profile-pic glow">
+                    <img src="c:\Users\ISMAIL\Downloads\Gemini_Generated_Image_7ktkxh7ktkxh7ktk-removebg-preview.png" alt="Profile Picture">
+                </div>
+                <div class="home-text">
+                    <h1>Hello, I'm <span>Ismail Shaik</span></h1>
+                    <h2>And I'm a <span>Cybersecurity Enthusiast</span></h2>
+                    <p>I am a Computer Science student passionate about cybersecurity, web development, and AI projects. Check out my work below!</p>
+                    <div class="social-icons">
+          <a href="#" onclick=""><i class='bx bxl-facebook'></i></a>
+          <a href="https://www.linkedin.com/in/ismail-sk-872695325/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://www.instagram.com/_smiley__ismail__/" target="_blank"><i class='bx bxl-instagram'></i></a>
+          <a href="https://github.com/Ismail-shaik786" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+                    <div class="home-buttons">
+                        <a href="#" class="btn">Hire Me</a>
+                        <a href="#contact" class="btn-outline">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Stats at bottom of Home -->
+    <div class="home-stats">
+        <div class="stat">
+            <h3>0+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat">
+            <h3>0+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat">
+            <h3>0+</h3>
+            <p>Technologies</p>
+        </div>
+        <div class="stat">
+            <h3>0+</h3>
+            <p>Satisfied Clients</p>
+        </div>
+    </div>
+</section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I am a Computer Science student and aspiring cybersecurity professional. I enjoy building web applications, exploring AI, and securing systems.</p>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certificates">
+            <div class="container">
+                <h2>Certifications</h2>
+                <div class="cards-container">
+                    <div class="card cert-card">
+                        <img src="C:\Users\ISMAIL\OneDrive\Desktop\ismail\frontend\cirtifactions\cyber security 1.jpg" alt="Certificate 1">
+                        <div class="card-title">Cybersecurity Basics</div>
+                    </div>
+                    <div class="card cert-card">
+                        <img src="images/cert2.png" alt="Certificate 2">
+                        <div class="card-title">Ethical Hacking</div>
+                    </div>
+                    <div class="card cert-card">
+                        <img src="images/cert3.png" alt="Certificate 3">
+                        <div class="card-title">AI & ML Projects</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="cards-container">
+                    <div class="card project-card">
+                        <div class="card-image">
+                            <img src="images/project1.png" alt="Project 1">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">AI-Powered Sports Talent Assessment</div>
+                            <p>Analyze athletes' performance using AI models and webcam data for effective talent assessment.</p>
+                        </div>
+                    </div>
+                    <div class="card project-card">
+                        <div class="card-image">
+                            <img src="images/project2.png" alt="Project 2">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Portfolio Website</div>
+                            <p>Interactive and responsive portfolio website with modern UI and professional layout.</p>
+                        </div>
+                    </div>
+                    <div class="card project-card">
+                        <div class="card-image">
+                            <img src="images/project3.png" alt="Project 3">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Phishing Awareness Campaign</div>
+                            <p>Designed a mock phishing campaign to educate employees about email security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Email: ismail@example.com</p>
+                <p>Phone: +31 123 456 7890</p>
+                <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/ismailshaik</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Section navigation with fade effect
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(sec => {
+                sec.classList.remove('active', 'fade-in');
+                sec.offsetWidth; // trigger reflow
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active', 'fade-in');
+        }
+
+        // Certificate enlarge functionality
+        const certCards = document.querySelectorAll('.cert-card');
+        certCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                card.classList.add('enlarged');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            certCards.forEach(card => card.classList.remove('enlarged'));
+        });
+
+        certCards.forEach(card => {
+            card.addEventListener('click', (e) => e.stopPropagation());
+        });
+    </script>
+</body>
+</html>

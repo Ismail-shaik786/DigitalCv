@@ -30,7 +30,7 @@
         <section id="home" class="active">
             <div class="container home-container">
                 <div class="profile-pic glow">
-                    <img src="c:\Users\ISMAIL\Downloads\Gemini_Generated_Image_7ktkxh7ktkxh7ktk-removebg-preview.png" alt="Profile Picture">
+                    <img src="WhatsApp Image 2026-02-12 at 9.39.09 PM.jpeg" alt="Profile Picture">
                 </div>
                 <div class="home-text">
                     <h1>Hello, I'm <span>Ismail Shaik</span></h1>
@@ -70,12 +70,75 @@
 </section>
 
         <!-- About Section -->
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>I am a Computer Science student and aspiring cybersecurity professional. I enjoy building web applications, exploring AI, and securing systems.</p>
+        <section id="about" class="premium-about">
+
+    <!-- Top Section -->
+    <div class="about-top">
+
+        <!-- Left Side Animated Image -->
+        <div class="about-image">
+            <img src="WhatsApp Image 2026-02-12 at 9.22.05 PM.jpeg" alt="Ismail Shaik">
+        </div>
+
+        <!-- Right Side About Text -->
+        <div class="about-text">
+            <h2 class="reveal">About Me</h2>
+            <p class="reveal">
+                I'm <strong>Ismail Shaik</strong>, a passionate Computer Science student 
+                specializing in Cybersecurity and Secure Application Development.
+            </p>
+            <p class="reveal">
+                I focus on penetration testing, AI-based systems, and building 
+                secure full-stack applications. My mission is to become 
+                a professional Red Team specialist and security researcher.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Education Timeline -->
+    <div class="education-section">
+        <h2 class="reveal">Education</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <h3>B.Tech in Computer Science</h3>
+                <span>2024 – 2028</span>
+                <p>Specialization in Cybersecurity & data Science</p>
             </div>
-        </section>
+
+            <div class="timeline-item reveal">
+                <h3>Intermediate (12th Grade)</h3>
+                <span>2022 – 2024</span>
+                <p>Science Stream</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills-section">
+        <h2 class="reveal">Technical Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">Python</div>
+            <div class="skill-card reveal">Java</div>
+            <div class="skill-card reveal">HTML</div>
+            <div class="skill-card reveal">CSS</div>
+            <div class="skill-card reveal">JavaScript</div>
+            <div class="skill-card reveal">Flask</div>
+            <div class="skill-card reveal">MongoDB</div>
+            <div class="skill-card reveal">Kali Linux</div>
+            <div class="skill-card reveal">Wireshark</div>
+            <div class="skill-card reveal">Burp Suite</div>
+
+        </div>
+    </div>
+
+</section>
+
 
         <!-- Certifications Section -->
         <section id="certificates">
@@ -83,12 +146,12 @@
                 <h2>Certifications</h2>
                 <div class="cards-container">
                     <div class="card cert-card">
-                        <img src="C:\Users\ISMAIL\OneDrive\Desktop\ismail\frontend\cirtifactions\cyber security 1.jpg" alt="Certificate 1">
+                        <img src="cybersecurity 1_page-0001.jpg" alt="Certificate 1">
                         <div class="card-title">Cybersecurity Basics</div>
                     </div>
                     <div class="card cert-card">
-                        <img src="images/cert2.png" alt="Certificate 2">
-                        <div class="card-title">Ethical Hacking</div>
+                        <img src="Data+Entry+Essentials_page-0001.jpg" alt="Certificate 2">
+                        <div class="card-title">Data-entry</data></div>
                     </div>
                     <div class="card cert-card">
                         <img src="images/cert3.png" alt="Certificate 3">
@@ -138,9 +201,9 @@
         <section id="contact">
             <div class="container">
                 <h2>Contact</h2>
-                <p>Email: ismail@example.com</p>
-                <p>Phone: +31 123 456 7890</p>
-                <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/ismailshaik</a></p>
+                <p>Email: isk553411@gmail.com</p>
+                <p>Phone: +917093806495</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/shaik-ismail-872695325/" target="_blank">linkedin.com/in/ismailshaik</a></p>
             </div>
         </section>
     </main>
@@ -173,6 +236,24 @@
         certCards.forEach(card => {
             card.addEventListener('click', (e) => e.stopPropagation());
         });
+
+        // Scroll Reveal Animation
+window.addEventListener('scroll', reveal);
+
+function reveal() {
+    var reveals = document.querySelectorAll('.reveal');
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+        }
+    }
+}
+
     </script>
 </body>
 </html>

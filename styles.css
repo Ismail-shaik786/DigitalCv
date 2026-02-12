@@ -121,3 +121,112 @@ section h2 { font-size:32px; color:#58a6ff; margin-bottom:30px; text-align:cente
     background: #00bfff;
     color: #081b29;
 }
+/* PREMIUM ABOUT SECTION */
+.premium-about {
+    padding: 80px 10%;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* Top Layout */
+.about-top {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+/* Floating Image */
+.about-text{
+    flex: 1;
+    margin-right: auto;
+}
+.about-image img {
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0,255,255,0.4);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.about-text h2 {
+    background: linear-gradient(270deg,#00f7ff,#0077ff,#00f7ff);
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.about-text p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Education Timeline */
+.timeline {
+    border-left: 3px solid #00f7ff;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+}
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: rgba(0,255,255,0.1);
+    border: 1px solid rgba(0,255,255,0.3);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    background: linear-gradient(90deg,#00f7ff,#0077ff);
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0,255,255,0.5);
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -230,14 +230,3 @@ section h2 { font-size:32px; color:#58a6ff; margin-bottom:30px; text-align:cente
     opacity: 1;
     transform: translateY(0);
 }
-/* Desktop */
-.container {
-    display: flex;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-}

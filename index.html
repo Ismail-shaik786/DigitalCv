@@ -3,264 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ismail Shaik - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ismail Shaik | Cybersecurity Expert</title>
+    <meta name="description" content="Cybersecurity Portfolio of Ismail Shaik - Ethical Hacker and Penetration Tester.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Michroma&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">Portfolio-issu</div>
-            <nav class="nav-buttons">
-                <ul>
-                    <li><button onclick="showSection('home')">Home</button></li>
-                    <li><button onclick="showSection('about')">About</button></li>
-                    <li><button onclick="showSection('certificates')">Certifications</button></li>
-                    <li><button onclick="showSection('projects')">Projects</button></li>
-                    <li><button onclick="showSection('contact')">Contact</button></li>
-                </ul>
-            </nav>
-            <a href="#" class="btn-cv">Download CV</a>
-        </div>
-    </header>
+<body class="bg-dark text-light">
 
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="active">
-            <div class="container home-container">
-                <div class="profile-pic glow">
-                    <img src="WhatsApp Image 2026-02-12 at 9.39.09 PM.jpeg" alt="Profile Picture">
-                </div>
-                <div class="home-text">
-                    <h1>Hello, I'm <span>Ismail Shaik</span></h1>
-                    <h2>And I'm a <span>Cybersecurity Enthusiast</span></h2>
-                    <p>I am a Computer Science student passionate about cybersecurity, web development, and AI projects. Check out my work below!</p>
-                    <div class="social-icons">
-          <a href="#" onclick=""><i class='bx bxl-facebook'></i></a>
-          <a href="https://www.linkedin.com/in/ismail-sk-872695325/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-          <a href="https://www.instagram.com/_smiley__ismail__/" target="_blank"><i class='bx bxl-instagram'></i></a>
-          <a href="https://github.com/Ismail-shaik786" target="_blank"><i class='bx bxl-github'></i></a>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader">
+            <div class="scanner">
+                <span>SCANNING SYSTEM...</span>
+            </div>
         </div>
-                    <div class="home-buttons">
-                        <a href="#" class="btn">Hire Me</a>
-                        <a href="#contact" class="btn-outline">Contact Me</a>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand cyber-brand" href="#">
+                <span class="text-neon-green">ISMAIL</span><span class="text-neon-blue"> SHAIK</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick="showSection('home');return false;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('about');return false;">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('skills');return false;">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('projects');return false;">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('certifications');return false;">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('experience');return false;">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('contact');return false;">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section section-page active-section">
+        <!-- Matrix canvas rain -->
+        <canvas id="matrixCanvas"></canvas>
+        <!-- Hex grid overlay -->
+        <div class="hex-overlay"></div>
+        <!-- Floating tech nodes -->
+        <div class="tech-nodes" id="techNodes"></div>
+        <!-- Mouse-reactive scan line -->
+        <div class="scan-line" id="scanLine"></div>
+
+        <div class="container text-center" style="position:relative; z-index:10;">
+            <div class="hero-content" data-aos="zoom-in">
+                <!-- Coordinate display follows mouse -->
+                <div class="coord-display" id="coordDisplay">X:000 Y:000</div>
+                <div class="glitch-wrapper mb-4" data-depth="0.04">
+                    <h1 class="display-1 fw-bold cyber-glitch" data-text="ISMAIL SHAIK">ISMAIL SHAIK</h1>
+                </div>
+                <h3 class="typed-text mb-4" data-depth="0.02">
+                    <span id="typed"></span>
+                </h3>
+                <p class="lead text-secondary mb-5 mx-auto" style="max-width: 700px;" data-depth="0.01">
+                    Fortifying the digital frontier through ethical hacking, penetration testing, and proactive threat mitigation.
+                </p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-cyber-green me-3 magnetic-btn">Hire Me</a>
+                    <a href="#projects" class="btn btn-cyber-outline magnetic-btn">View Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-padding overflow-hidden section-page">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="profile-image-container">
+                        <div class="cyber-frame">
+                            <img src="WhatsApp Image 2026-02-12 at 9.39.09 PM.jpeg" alt="Ismail Shaik" class="img-fluid rounded shadow-lg">
+                        </div>
+                        <div class="experience-badge">
+                            <span class="number">1+</span>
+                            <span class="text">Years XP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
+                    <span class="section-label d-block mb-3">// IDENTITY SCAN COMPLETE</span>
+                    <h2 class="section-title text-neon-blue mb-4">_whoami</h2>
+                    <p class="mb-4 text-secondary fs-5">
+                        I am a dedicated <strong>Cybersecurity Researcher</strong> and <strong>Full-Stack Developer</strong>. My journey is fueled by a passion for breaking systems to understand how to build them better. 
+                    </p>
+                    <p class="mb-5 text-secondary">
+                        With a deep focus on offensive security, I specialize in identifying vulnerabilities before they become threats. I combine my engineering background with a hacker's mindset to create resilient digital infrastructures.
+                    </p>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-6">
+                            <div class="tool-icon-box">
+                                <i class="fab fa-linux text-neon-green"></i>
+                                <span>Kali Linux Expert</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-icon-box">
+                                <i class="fas fa-shield-alt text-neon-blue"></i>
+                                <span>Penetration Tester</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-icon-box">
+                                <i class="fas fa-network-wired text-neon-red"></i>
+                                <span>Network Security</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-icon-box">
+                                <i class="fas fa-code text-warning"></i>
+                                <span>Secure Coding</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-progress">
+                        <h5 class="mb-3 text-neon-green">Threat Analysis</h5>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-neon-green" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h5 class="mb-3 text-neon-blue">Network Defense</h5>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-neon-blue" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Stats at bottom of Home -->
-    <div class="home-stats">
-        <div class="stat">
-            <h3>0+</h3>
-            <p>Years Experience</p>
         </div>
-        <div class="stat">
-            <h3>3+</h3>
-            <p>Projects Completed</p>
-        </div>
-        <div class="stat">
-            <h3>15+</h3>
-            <p>Technologies</p>
-        </div>
-        <div class="stat">
-            <h3>0+</h3>
-            <p>Satisfied Clients</p>
-        </div>
-    </div>
-</section>
-
-        <!-- About Section -->
-        <section id="about" class="premium-about">
-
-    <!-- Top Section -->
-    <div class="about-top">
-
-        <!-- Left Side Animated Image -->
-        <div class="about-image">
-            <img src="WhatsApp Image 2026-02-12 at 9.22.05 PM.jpeg" alt="Ismail Shaik">
-        </div>
-
-        <!-- Right Side About Text -->
-        <div class="about-text">
-            <h2 class="reveal">About Me</h2>
-            <p class="reveal">
-                I'm <strong>Ismail Shaik</strong>, a passionate Computer Science student 
-                specializing in Cybersecurity and Secure Application Development.
-            </p>
-            <p class="reveal">
-                I focus on penetration testing, AI-based systems, and building 
-                secure full-stack applications. My mission is to become 
-                a professional Red Team specialist and security researcher.
-            </p>
-        </div>
-
-    </div>
-
-    <!-- Education Timeline -->
-    <div class="education-section">
-        <h2 class="reveal">Education</h2>
-
-        <div class="timeline">
-
-            <div class="timeline-item reveal">
-                <h3>B.Tech in Computer Science</h3>
-                <span>2024 – 2028</span>
-                <p>Specialization in Cybersecurity & data Science</p>
-            </div>
-
-            <div class="timeline-item reveal">
-                <h3>Intermediate (12th Grade)</h3>
-                <span>2022 – 2024</span>
-                <p>Science Stream</p>
-            </div>
-
-        </div>
-    </div>
+    </section>
 
     <!-- Skills Section -->
-    <div class="skills-section">
-        <h2 class="reveal">Technical Skills</h2>
+    <section id="skills" class="section-padding bg-dark-2 section-page">
+        <div class="container text-center mb-5">
+            <div class="section-header">
+                <span class="section-label">// CLEARANCE LEVEL: ALPHA</span><br>
+                <h2 class="section-title text-neon-green d-inline-block" data-aos="fade-up">Technical Arsenal</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <!-- Networking -->
+                <div class="col-md-4" data-aos="flip-left">
+                    <div class="skill-card-cyber">
+                        <div class="skill-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Networking</h3>
+                        <ul class="list-unstyled">
+                            <li>TCP/IP Fundamentals</li>
+                            <li>DNS security</li>
+                            <li>Firewall Management</li>
+                            <li>VPN Protocols</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Web Security -->
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="skill-card-cyber active">
+                        <div class="skill-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Web Security</h3>
+                        <ul class="list-unstyled">
+                            <li>OWASP Top 10</li>
+                            <li>XSS & SQL Injection</li>
+                            <li>JWT Exploitation</li>
+                            <li>API Pentesting</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="skill-card-cyber">
+                        <div class="skill-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Tools & Tech</h3>
+                        <ul class="list-unstyled">
+                            <li>Metasploit / Nmap</li>
+                            <li>Burp Suite Professional</li>
+                            <li>Wireshark / Snort</li>
+                            <li>Docker / Kubernetes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="skills-grid">
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding section-page">
+        <div class="container text-center mb-5">
+            <div class="section-header">
+                <span class="section-label">// ACTIVE EXPLOITS &amp; RESEARCH</span><br>
+                <h2 class="section-title text-neon-red d-inline-block" data-aos="fade-up">Security Lab</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="homepage.png" alt="AutoVulnScan" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-red" data-bs-toggle="modal" data-bs-target="#projectModal1">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-red">AutoVulnScan</h4>
+                            <p class="text-secondary small">Automated security tool for identifying XSS, SQLi, and leakage.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-red text-neon-red">Python</span>
+                                <span class="badge bg-dark border border-neon-red text-neon-red">OWASP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="ocean.png" alt="Ocean Hazard AI" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-blue" data-bs-toggle="modal" data-bs-target="#projectModal2">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-blue">Ocean Hazard AI</h4>
+                            <p class="text-secondary small">Deep learning models for detecting environmental anomalies.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">React</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">ML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="voicassistance.png" alt="Sentix Assistant" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-green" data-bs-toggle="modal" data-bs-target="#projectModal3">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-green">Sentix Assistant</h4>
+                            <p class="text-secondary small">AI-driven automation with biometric authentication.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-green text-neon-green">OpenCV</span>
+                                <span class="badge bg-dark border border-neon-green text-neon-green">LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="skill-card reveal">Python</div>
-            <div class="skill-card reveal">Java</div>
-            <div class="skill-card reveal">HTML</div>
-            <div class="skill-card reveal">CSS</div>
-            <div class="skill-card reveal">JavaScript</div>
-            <div class="skill-card reveal">Flask</div>
-            <div class="skill-card reveal">MongoDB</div>
-            <div class="skill-card reveal">Kali Linux</div>
-            <div class="skill-card reveal">Wireshark</div>
-            <div class="skill-card reveal">Burp Suite</div>
-
+    <!-- Project Modals -->
+    <div class="modal fade cyber-modal" id="projectModal1" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-red text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-red">_project_details: AutoVulnScan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="homepage.png" class="img-fluid rounded mb-4 border border-secondary" alt="">
+                    <p>AutoVulnScan is a custom-built automated scanner designed to crawl web assets and identify common vulnerabilities listed in the OWASP Top 10. It focuses on precision and low false-positive rates.</p>
+                    <ul class="text-secondary">
+                        <li>Recursive URL discovery</li>
+                        <li>Automated payload injection for XSS/SQLi</li>
+                        <li>Detailed JSON reporting</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
-</section>
+    <div class="modal fade cyber-modal" id="projectModal2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-blue text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-blue">_project_details: Ocean Hazard AI</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="ocean.png" class="img-fluid rounded mb-4 border border-secondary" alt="">
+                    <p>A surveillance system that uses machine learning to analyze ocean sensor data in real-time, predicting potential hazards like tsunamis or illegal activity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade cyber-modal" id="projectModal3" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-green text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-green">_project_details: Sentix Assistant</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="voicassistance.png" class="img-fluid rounded mb-4 border border-secondary" alt="">
+                    <p>Sentix combines voice recognition with facial biometrics to provide a secure, hands-free automation experience for developers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Certifications Section -->
-        <section id="certificates">
-            <div class="container">
-                <h2>Certifications</h2>
-                <div class="cards-container">
-                    <div class="card cert-card">
-                        <img src="cybersecurity 1_page-0001.jpg" alt="Certificate 1">
-                        <div class="card-title">Cybersecurity Basics</div>
+    <!-- Certifications Section -->
+    <section id="certifications" class="section-padding bg-dark-2 section-page">
+        <div class="container text-center mb-5">
+            <div class="section-header">
+                <span class="section-label">// CREDENTIALS VERIFIED</span><br>
+                <h2 class="section-title text-neon-blue d-inline-block" data-aos="fade-up">Certifications</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5" data-aos="zoom-in-up">
+                    <div class="cert-box p-4 text-center">
+                        <img src="cybersecurity 1_page-0001.jpg" alt="Cert" class="img-fluid rounded border border-neon-blue mb-3">
+                        <h4 class="text-neon-blue mt-3">Cybersecurity Specialization</h4>
+                        <span class="badge bg-neon-blue text-dark">Verified</span>
                     </div>
-                    <div class="card cert-card">
-                        <img src="Data+Entry+Essentials_page-0001.jpg" alt="Certificate 2">
-                        <div class="card-title">Data-entry</data></div>
-                    </div>
-                    <div class="card cert-card">
-                        <img src="images/cert3.png" alt="Certificate 3">
-                        <div class="card-title">AI & ML Projects</div>
+                </div>
+                <div class="col-md-5" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="cert-box p-4 text-center">
+                        <img src="Data+Entry+Essentials_page-0001.jpg" alt="Cert" class="img-fluid rounded border border-neon-green mb-3">
+                        <h4 class="text-neon-green mt-3">Information Systems Essentials</h4>
+                        <span class="badge bg-neon-green text-dark">Verified</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="cards-container">
-                    <div class="card project-card">
-                        <div class="card-image">
-                           <img src='homepage.png' >
-                        </div>
-                        <div class="card-content">
-                           <a href="https://github.com/Ismail-shaik786/cyberguard" target="_blank" class="card-title-link"> <div  class="card-title">AutoVulnScan</div></a>
-                            <p>an automated web vulnerability scanner designed to detect security flaws such as SQL Injection, XSS, exposed directories, and sensitive data leaks.
-
-It performs web crawling, directory brute-forcing, screenshot documentation, and structured reporting to make vulnerability detection proactive and efficient. 🔐🚀</p>
-                        </div>
+    <!-- Experience / Timeline -->
+    <section id="experience" class="section-padding section-page">
+        <div class="container text-center mb-5">
+            <div class="section-header">
+                <span class="section-label">// MISSION HISTORY</span><br>
+                <h2 class="section-title text-neon-green d-inline-block" data-aos="fade-up">Career Timeline</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-item shadow-sm" data-aos="fade-up">
+                    <div class="timeline-content p-4 glass-card border-neon-green">
+                        <span class="date text-neon-green">2026 - PRESENT</span>
+                        <h3 class="mt-2">Full-Stack Developer Intern</h3>
+                        <p class="text-secondary">ReportMyCity Project</p>
+                        <p class="small">Implemented secure RBAC, API hardening, and premium UI components.</p>
                     </div>
-                    <div class="card project-card" >
-                        <div class="card-image">
-                            <img src="ocean.png" alt="Project 2">
-                        </div>
-                        <div class="card-content">
-                          <a href="https://0ceanhazard-1.vercel.app/" target="_blank" class="card-title-link">
-    <div class="card-title">Ocean Hazard Monitoring Dashboard</div>
-</a>
-                            <p>A real-time dashboard that analyzes social media logs to detect 
-potential ocean-related hazards such as tsunamis, floods, and oil spills.</p>
-                        </div>
+                </div>
+                <div class="timeline-item shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-content p-4 glass-card border-neon-blue">
+                        <span class="date text-neon-blue">2025 - ONGOING</span>
+                        <h3 class="mt-2">Security Researcher</h3>
+                        <p class="text-secondary">Independent / GitHub Labs</p>
+                        <p class="small">Vulnerability research, automated scanner development, and CTF participation.</p>
                     </div>
-                    <div class="card project-card">
-                        <div class="card-image">
-                            <img src="voicassistance.png" alt="Project 3">
-                        </div>
-                        <div class="card-content">
-                            <a href="https://github.com/Ismail-shaik786/voice-assistant/tree/main" target="_blank" class="card-title-link"><div class="card-title">AI Voice Assistant</div></a>
-                            <p>🤖 AI Voice Assistant built with Python that automates daily tasks like 📞 calling, 💬 sending messages, 🖥️ opening applications, and ⚙️ system control using voice commands.
-
-🧠 Integrated with Google Gemini API for intelligent conversational responses, combining 🎙️ speech recognition, 👁️ face authentication, and 🚀 real-time automation into a smart personal assistant.</p>
-                        </div>
+                </div>
+                <div class="timeline-item shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-content p-4 glass-card border-neon-red">
+                        <span class="date text-neon-red">2024 - 2025</span>
+                        <h3 class="mt-2">B.Tech Student (CSE)</h3>
+                        <p class="text-secondary">University Education</p>
+                        <p class="small">Foundation in networking, data structures, and secure development lifecycle.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Email: isk553411@gmail.com</p>
-                <p>Phone: +917093806495</p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/shaik-ismail-872695325/" target="_blank">linkedin.com/in/ismailshaik</a></p>
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-dark-2 section-page">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="section-header text-start">
+                        <span class="section-label">// OPEN CHANNEL</span><br>
+                        <h2 class="section-title text-neon-blue mb-4">_establish_connection</h2>
+                    </div>
+                    <p class="text-secondary mb-5">Interested in security audits, collaborative projects, or just want to talk about hacking? Reach out via the form or social links.</p>
+                    
+                    <div class="contact-info-list mt-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon-box me-3">
+                                <i class="fas fa-envelope text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Email</h6>
+                                <p class="mb-0 small text-secondary">isk553411@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="contact-icon-box me-3">
+                                <i class="fab fa-linkedin text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">LinkedIn</h6>
+                                <p class="mb-0 small text-secondary">ismail-sk-872695325</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon-box me-3">
+                                <i class="fab fa-github text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0">GitHub</h6>
+                                <p class="mb-0 small text-secondary">Ismail-shaik786</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <form class="cyber-form needs-validation" novalidate>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-neon-green">Target Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe" required>
+                                <div class="invalid-feedback text-neon-red">Identify yourself!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-neon-green">Return Address</label>
+                                <input type="email" class="form-control" placeholder="john@example.com" required>
+                                <div class="invalid-feedback text-neon-red">Valid email required for handshake.</div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-neon-green">Payload (Message)</label>
+                                <textarea class="form-control" rows="5" placeholder="System request..." required></textarea>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-cyber-green px-5">Transmit Payload</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script>
-        // Section navigation with fade effect
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('main section');
-            sections.forEach(sec => {
-                sec.classList.remove('active', 'fade-in');
-                sec.offsetWidth; // trigger reflow
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active', 'fade-in');
-        }
+    <!-- Footer -->
+    <footer class="py-5 bg-dark border-top border-secondary text-center">
+        <div class="container">
+            <div class="social-links mb-4">
+                <a href="#" class="mx-2 fs-4 text-neon-green"><i class="fab fa-github"></i></a>
+                <a href="#" class="mx-2 fs-4 text-neon-blue"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="mx-2 fs-4 text-neon-red"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-secondary small">&copy; 2026. All Systems Operational. <br> Designed by <span class="text-neon-green">Ismail Shaik</span></p>
+        </div>
+    </footer>
 
-        // Certificate enlarge functionality
-        const certCards = document.querySelectorAll('.cert-card');
-        certCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                e.stopPropagation();
-                card.classList.add('enlarged');
-            });
-        });
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-        document.addEventListener('click', () => {
-            certCards.forEach(card => card.classList.remove('enlarged'));
-        });
-
-        certCards.forEach(card => {
-            card.addEventListener('click', (e) => e.stopPropagation());
-        });
-
-        // Scroll Reveal Animation
-window.addEventListener('scroll', reveal);
-
-function reveal() {
-    var reveals = document.querySelectorAll('.reveal');
-
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 100;
-
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add('active');
-        }
-    }
-}
-
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

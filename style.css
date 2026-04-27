@@ -633,6 +633,9 @@ pre, code, .typed-text, .section-title {
     position: relative;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card-cyber:hover {
@@ -643,6 +646,13 @@ pre, code, .typed-text, .section-title {
 .project-img {
     position: relative;
     overflow: hidden;
+    height: 220px; /* Fixed height for uniform images */
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .project-overlay {
@@ -661,6 +671,16 @@ pre, code, .typed-text, .section-title {
 
 .project-card-cyber:hover .project-overlay {
     opacity: 1;
+}
+
+.project-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info .tags {
+    margin-top: auto;
 }
 
 /* Timeline */

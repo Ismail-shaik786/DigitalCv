@@ -228,26 +228,27 @@
         </div>
         <div class="container">
             <div class="row g-4">
-                <!-- Project 1 -->
+                <!-- Project 1 (Is-mail) -->
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in">
                     <div class="project-card-cyber">
                         <div class="project-img">
-                            <img src="homepage.png" alt="AutoVulnScan" class="img-fluid">
+                            <img src="gmailclone.png" alt="Is-mail" class="img-fluid">
                             <div class="project-overlay">
-                                <button class="btn btn-sm btn-neon-red" data-bs-toggle="modal" data-bs-target="#projectModal1">View Lab</button>
+                                <button class="btn btn-sm btn-neon-blue" data-bs-toggle="modal" data-bs-target="#projectModal5">View Lab</button>
                             </div>
                         </div>
                         <div class="project-info p-4">
-                            <h4 class="text-neon-red">AutoVulnScan</h4>
-                            <p class="text-secondary small">Automated security tool for identifying XSS, SQLi, and leakage.</p>
+                            <h4 class="text-neon-blue">Is-mail</h4>
+                            <p class="text-secondary small">A fully functional modernized Gmail clone featuring a robust notification system and a secure MongoDB backend.</p>
                             <div class="tags">
-                                <span class="badge bg-dark border border-neon-red text-neon-red">Python</span>
-                                <span class="badge bg-dark border border-neon-red text-neon-red">OWASP</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">PHP</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">JS</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">MongoDB</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
+                <!-- Project 2 (Ocean Hazard AI) -->
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="project-card-cyber">
                         <div class="project-img">
@@ -266,8 +267,28 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 3 -->
+                <!-- Project 3 (ReportMyCity) -->
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="reportmycity.png" alt="ReportMyCity" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-blue" data-bs-toggle="modal" data-bs-target="#projectModal4">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-blue">ReportMyCity</h4>
+                            <p class="text-secondary small">A civic engagement platform for reporting urban issues in real-time.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">PHP</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">JS</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4 (Sentix Assistant) -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
                     <div class="project-card-cyber">
                         <div class="project-img">
                             <img src="voicassistance.png" alt="Sentix Assistant" class="img-fluid">
@@ -281,6 +302,25 @@
                             <div class="tags">
                                 <span class="badge bg-dark border border-neon-green text-neon-green">OpenCV</span>
                                 <span class="badge bg-dark border border-neon-green text-neon-green">LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 (AutoVulnScan) -->
+                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="homepage.png" alt="AutoVulnScan" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-red" data-bs-toggle="modal" data-bs-target="#projectModal1">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-red">AutoVulnScan</h4>
+                            <p class="text-secondary small">Automated security tool for identifying XSS, SQLi, and leakage.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-red text-neon-red">Python</span>
+                                <span class="badge bg-dark border border-neon-red text-neon-red">OWASP</span>
                             </div>
                         </div>
                     </div>
@@ -340,6 +380,62 @@
         </div>
     </div>
 
+    <!-- Project Modal 4 (ReportMyCity) -->
+    <div class="modal fade cyber-modal" id="projectModal4" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-blue text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-blue">_project_details: ReportMyCity</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="reportmycity.png" class="img-fluid rounded mb-4 border border-secondary" alt="">
+                    <p><strong>ReportMyCity</strong> is a comprehensive civic engagement platform that allows citizens to report local issues such as infrastructure damage, waste management problems, and utility failures.</p>
+                    <h6 class="text-neon-blue mt-4">Key Features & Security:</h6>
+                    <ul class="text-secondary">
+                        <li><strong>Secure RBAC:</strong> Implemented Role-Based Access Control to separate citizen reports from administrative oversight.</li>
+                        <li><strong>API Hardening:</strong> Secured backend endpoints against injection and unauthorized data access.</li>
+                        <li><strong>Real-time Heatmaps:</strong> Visualizing issue density across city sectors for faster response times.</li>
+                        <li><strong>Notification Engine:</strong> Automated updates for citizens as their reports move from "Open" to "Resolved".</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">PHP</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">MySQL</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">JavaScript</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">HTML5 / CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Project Modal 5 (Is-mail) -->
+    <div class="modal fade cyber-modal" id="projectModal5" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-blue text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-blue">_project_details: Is-mail</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="gmailclone.png" class="img-fluid rounded mb-4 border border-secondary" alt="Is-mail">
+                    <p><strong>Is-mail</strong> is a fully functional, modernized Gmail clone designed to deliver a seamless emailing experience with real-time updates.</p>
+                    <h6 class="text-neon-blue mt-4">Key Features & Technologies:</h6>
+                    <ul class="text-secondary">
+                        <li><strong>Modern UI/UX:</strong> Glassmorphism design and responsive layout for a premium feel.</li>
+                        <li><strong>Notification Engine:</strong> Robust system for real-time alerting on new emails.</li>
+                        <li><strong>Database Architecture:</strong> Powered by a secure and scalable MongoDB backend.</li>
+                        <li><strong>Deployment Ready:</strong> Configured for live environment deployment such as Render.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">PHP</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">JS</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">MongoDB</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Certifications Section -->
     <section id="certifications" class="section-padding bg-dark-2 section-page">
         <div class="container text-center mb-5">

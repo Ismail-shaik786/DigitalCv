@@ -1,14 +1,14 @@
 :root {
-    --bg-dark: #0a0a0a;
-    --bg-dark-2: #121212;
-    --neon-green: #00ff41;
-    --neon-blue: #00d4ff;
-    --neon-red: #ff2e2e;
-    --neon-yellow: #f59e0b;
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --glass-bg: rgba(18, 18, 18, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-dark: #05070a;
+    --bg-dark-2: #0b0f17;
+    --neon-green: #0df2c9; /* Premium glowing Mint/Teal */
+    --neon-blue: #00d4ff;  /* Vibrant Tech Cyan/Blue */
+    --neon-red: #ff2d79;   /* Sleek Rose/Coral Red */
+    --neon-yellow: #ffb700; /* Warm Gold */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(11, 15, 23, 0.85);
+    --glass-border: rgba(0, 212, 255, 0.12);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -43,8 +43,8 @@ a, button, [role="button"], label, select { cursor: pointer; }
 
 /* Active nav link highlight */
 .navbar .nav-link.nav-active {
-    color: var(--neon-green) !important;
-    text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
 }
 
 /* ── Spotlight (hero only, no cursor needed) ── */
@@ -639,8 +639,9 @@ pre, code, .typed-text, .section-title {
 }
 
 .project-card-cyber:hover {
-    border-color: var(--neon-red);
-    transform: scale(1.02);
+    border-color: var(--neon-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.22);
 }
 
 .project-img {
@@ -820,3 +821,114 @@ pre, code, .typed-text, .section-title {
         border: 1px solid var(--glass-border);
     }
 }
+
+/* ======================================================
+   PROJECT MODAL CAROUSEL
+   ====================================================== */
+
+/* Fixed height so all images are uniform inside modal */
+.cyber-modal .carousel-inner {
+    max-height: 420px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+}
+
+.cyber-modal .carousel-inner img {
+    width: 100%;
+    height: 420px;
+    object-fit: contain;  /* show full screenshot without crop */
+    background: #0a0a0a;
+}
+
+/* Neon-tinted carousel indicators */
+.cyber-modal .carousel-indicators [data-bs-target] {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.cyber-modal .carousel-indicators .active {
+    background-color: var(--neon-blue);
+    box-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Brighter prev/next arrows on dark bg */
+.cyber-modal .carousel-control-prev-icon,
+.cyber-modal .carousel-control-next-icon {
+    filter: drop-shadow(0 0 4px var(--neon-blue));
+}
+
+/* Modal borders and glow */
+.cyber-modal .modal-content {
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* Auto-scroll animation restarts cleanly when modal opens */
+.cyber-modal .carousel {
+    outline: none;
+}
+
+/* ======================================================
+   NEON BORDERS & GLOW UTILITIES
+   ====================================================== */
+.border-neon-blue {
+    border: 1px solid var(--neon-blue) !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.15) !important;
+}
+.border-neon-green {
+    border: 1px solid var(--neon-green) !important;
+    box-shadow: 0 0 15px rgba(13, 242, 201, 0.15) !important;
+}
+.border-neon-red {
+    border: 1px solid var(--neon-red) !important;
+    box-shadow: 0 0 15px rgba(255, 45, 121, 0.15) !important;
+}
+
+/* ======================================================
+   NEON BUTTON UTILITIES
+   ====================================================== */
+.btn-neon-blue {
+    background: transparent !important;
+    border: 1px solid var(--neon-blue) !important;
+    color: var(--neon-blue) !important;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.1) !important;
+    transition: var(--transition) !important;
+}
+.btn-neon-blue:hover {
+    background: var(--neon-blue) !important;
+    color: var(--bg-dark) !important;
+    box-shadow: 0 0 18px var(--neon-blue) !important;
+}
+
+.btn-neon-green {
+    background: transparent !important;
+    border: 1px solid var(--neon-green) !important;
+    color: var(--neon-green) !important;
+    box-shadow: 0 0 8px rgba(13, 242, 201, 0.1) !important;
+    transition: var(--transition) !important;
+}
+.btn-neon-green:hover {
+    background: var(--neon-green) !important;
+    color: var(--bg-dark) !important;
+    box-shadow: 0 0 18px var(--neon-green) !important;
+}
+
+.btn-neon-red {
+    background: transparent !important;
+    border: 1px solid var(--neon-red) !important;
+    color: var(--neon-red) !important;
+    box-shadow: 0 0 8px rgba(255, 45, 121, 0.1) !important;
+    transition: var(--transition) !important;
+}
+.btn-neon-red:hover {
+    background: var(--neon-red) !important;
+    color: var(--bg-dark) !important;
+    box-shadow: 0 0 18px var(--neon-red) !important;
+}
+
+

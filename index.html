@@ -345,6 +345,26 @@
                         </div>
                     </div>
                 </div>
+                <!-- Project 7 (CryptLock) -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card-cyber">
+                        <div class="project-img">
+                            <img src="ransomeware/0.png" alt="CryptLock" class="img-fluid">
+                            <div class="project-overlay">
+                                <button class="btn btn-sm btn-neon-blue" data-bs-toggle="modal" data-bs-target="#projectModal7">View Lab</button>
+                            </div>
+                        </div>
+                        <div class="project-info p-4">
+                            <h4 class="text-neon-blue">CryptLock</h4>
+                            <p class="text-secondary small">Real-time Python terminal-based ransomware detection & response system with entropy analysis and weighted risk scoring.</p>
+                            <div class="tags">
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">Python</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">Security</span>
+                                <span class="badge bg-dark border border-neon-blue text-neon-blue">Flask</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -585,6 +605,62 @@
                         <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">FastAPI</span>
                         <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">AI/ML</span>
                         <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">WebSockets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Project Modal 7 (CryptLock) -->
+    <div class="modal fade cyber-modal" id="projectModal7" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-neon-blue text-light">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-neon-blue">_project_details: CryptLock</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- CryptLock Carousel -->
+                    <div id="carouselModal7" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="2500">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselModal7" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#carouselModal7" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselModal7" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#carouselModal7" data-bs-slide-to="3"></button>
+                        </div>
+                        <div class="carousel-inner rounded border border-secondary">
+                            <div class="carousel-item active">
+                                <img src="ransomeware/0.png" class="d-block w-100" alt="CryptLock - 0">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="ransomeware/1.png" class="d-block w-100" alt="CryptLock - 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="ransomeware/2.png" class="d-block w-100" alt="CryptLock - 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="ransomeware/3.png" class="d-block w-100" alt="CryptLock - 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal7" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselModal7" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                    </div>
+                    <p><strong>CryptLock</strong> is a Python-based real-time ransomware detection and response system built entirely for the terminal — no GUI, no cloud dependency, just pure defensive security engineering. It monitors a target directory and automatically detects, alerts, and responds to ransomware-like behaviour before damage occurs.</p>
+                    <h6 class="text-neon-blue mt-4">Key Features &amp; Capabilities:</h6>
+                    <ul class="text-secondary">
+                        <li><strong>Shannon Entropy Analysis:</strong> Reads file bytes and measures randomness to detect encryption in real-time (encrypted files score 7–8/8 bits).</li>
+                        <li><strong>Sliding-Window Behaviour Engine:</strong> Detects mass file renames, bulk modifications, rapid deletions, and burst activity spikes within a 10-second window.</li>
+                        <li><strong>Weighted Risk Scoring (0–100):</strong> Combines multiple signals into a live risk tier — NORMAL → SUSPICIOUS → RANSOMWARE.</li>
+                        <li><strong>Automated Incident Response:</strong> Kills suspicious processes, quarantines files, and logs full forensic reports on confirmed threats.</li>
+                        <li><strong>Safe Ransomware Simulator:</strong> Built-in controlled simulation to stress-test the detection engine without real malware.</li>
+                        <li><strong>File Backup &amp; Recovery:</strong> Auto-backup system with one-command restore to recover files after an attack.</li>
+                        <li><strong>Flask Monitoring Dashboard:</strong> Live threat visualisation with event logs and risk gauge accessible via browser.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">Python</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">Watchdog</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">Flask</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">Shannon Entropy</span>
+                        <span class="badge bg-dark border border-neon-blue text-neon-blue p-2">Forensics</span>
                     </div>
                 </div>
             </div>
